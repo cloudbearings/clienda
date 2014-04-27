@@ -1,0 +1,24 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.arturobermejo.clienda.OrderDetailActivity" >
+
+    <item android:id="@+id/action_add_payment"
+        android:icon="@drawable/ic_action_add_payment"
+        android:title="@string/add_payment"
+        android:showAsAction="always" />
+
+    <item android:id="@+id/action_edit"
+        android:icon="@drawable/ic_action_edit"
+        android:title="@string/action_edit"
+        android:showAsAction="never" />
+
+    <item android:id="@+id/action_remove"
+        android:icon="@drawable/ic_action_remove"
+        android:title="@string/action_remove"
+        android:showAsAction="never" />
+
+    <item android:id="@+id/action_settings"
+        android:title="@string/action_settings"
+        android:orderInCategory="100"
+        android:showAsAction="never" />
+</menu>

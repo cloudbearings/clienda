@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Clienda</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_new_order">New Order</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_new_client">New Client</string>
+    <string name="title_activity_new_order">New Order</string>
+    <string name="search_title">Search</string>
+    <string name="title_activity_client_detail">Client Info</string>
+    <string name="action_edit">Edit</string>
+    <string name="action_remove">Remove</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_edit_client">Edit Info</string>
+    <string name="confirm_delete">Delete this element?</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete">Delete</string>
+    <string name="title_activity_order_detail">Order Detail</string>
+    <string name="payments_history">Payments History</string>
+    <string name="title_activity_edit_order">Edit Order</string>
+    <string name="add_payment">Add payment</string>
+    <string name="add">Add</string>
+    <string name="title_activity_client_order_history">Order History</string>
+    <string name="title_activity_select_client">Pick a Client</string>
+    <string name="empty_orders">No orders registered</string>
+    <string name="empty_clients">No clients registered</string>
+    <string name="client_no_orders">No orders yet</string>
+    <string name="tab_orders_title">Receivable Orders</string>
+    <string name="tab_clients_title">Clients</string>
+    <string name="validation_client_name_required">Client name is required</string>
+    <string name="validation_order_client_required">Select o create a client</string>
+    <string name="validation_order_product_required">Product name is required</string>
+    <string name="validation_order_price_required">Product price is required</string>
+    <string name="validation_order_price_greater_zero">Enter a value greater than zero</string>
+    <string name="validation_add_payments">Order is paid, if you want to add payments you need to delete an old payment</string>
+    <string name="validation_payment_amount_required">Amount of payment is required</string>
+    <string name="validation_payment_amount_greater_zero">Enter a value greater than zero</string>
+    <string name="validation_payment_exceed_price">Payments exceed total debt, enter a number less or equal than </string>
+    <string name="order_history">Order History</string>
+    <string name="make_call">Make a call</string>
+    <string name="name">Name</string>
+    <string name="address">Address</string>
+    <string name="phone">Phone Number</string>
+    <string name="email">Email</string>
+    <string name="notes">Notes</string>
+    <string name="save">Save</string>
+    <string name="select_client">Select a client</string>
+    <string name="product_name">Product name</string>
+    <string name="price">Price</string>
+    <string name="select_date">Select Date</string>
+    <string name="change">Change</string>
+    <string name="amount">Amount</string>
+    <string name="payments_empty">No payments registered</string>
+    <string name="last_order">Last Order:&#160;</string>
+    <string name="date">Date</string>
+    <string name="currency">Currency</string>
+    <string name="configuration_currency_summary">Set the currency symbol (e.g. $)</string>
+    <string name="order_debt">Debt:&#160;</string>
+    <string name="order_price">Price:&#160;</string>
+    <string name="quantity">Quantity</string>
+    <string name="validation_order_quantity_required">Quantity is required</string>
+    <string name="order_quantity">Quantity:&#160;</string>
+    <string name="order_total">Total:&#160;</string>
+    <string name="call_client">Call</string>
+
+</resources>

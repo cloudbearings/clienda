@@ -1,0 +1,165 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.arturobermejo.clienda.OrderDetailActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:id="@+id/orderInfo"
+        android:background="@android:color/background_light">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:id="@+id/orderDetailDate"
+            android:layout_marginTop="5dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/orderDetailProduct"
+            android:layout_below="@+id/orderDetailDate"
+            android:textStyle="italic"
+            android:textColor="@android:color/holo_blue_dark" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:id="@+id/orderDetailClient"
+            android:layout_below="@+id/orderDetailProduct"
+            android:layout_marginTop="5dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_below="@+id/orderDetailClient"
+            android:text="@string/order_price"
+            android:textColor="@android:color/holo_blue_dark"
+            android:id="@+id/orderDetailPriceText"
+            android:layout_marginTop="5dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_below="@+id/orderDetailClient"
+            android:layout_toRightOf="@+id/orderDetailPriceText"
+            android:id="@+id/orderDetailPrice"
+            android:layout_marginTop="5dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_below="@+id/orderDetailPriceText"
+            android:text="@string/order_quantity"
+            android:textColor="@android:color/holo_blue_dark"
+            android:id="@+id/orderDetailQuantityText"
+            android:layout_marginTop="5dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_below="@+id/orderDetailPriceText"
+            android:layout_toRightOf="@+id/orderDetailQuantityText"
+            android:id="@+id/orderDetailQuantity"
+            android:layout_marginTop="5dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_below="@+id/orderDetailClient"
+            android:layout_toLeftOf="@+id/orderDetailDebt"
+            android:text="@string/order_total"
+            android:textColor="@android:color/holo_blue_dark"
+            android:id="@+id/orderDetailTotalText"
+            android:layout_marginTop="5dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_below="@+id/orderDetailClient"
+            android:layout_alignParentRight="true"
+            android:id="@+id/orderDetailTotal"
+            android:layout_marginTop="5dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_below="@+id/orderDetailPriceText"
+            android:layout_toLeftOf="@+id/orderDetailDebt"
+            android:text="@string/order_debt"
+            android:textColor="@android:color/holo_red_light"
+            android:id="@+id/orderDetailDebtText"
+            android:layout_marginTop="5dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_below="@+id/orderDetailPriceText"
+            android:layout_alignParentRight="true"
+            android:id="@+id/orderDetailDebt"
+            android:layout_marginTop="5dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/orderDetailQuantityText"
+            android:layout_marginTop="5dp"
+            android:id="@+id/orderDetailNotes" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_red_light"
+        android:textColor="@android:color/background_light"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:textStyle="italic"
+        android:text="@string/payments_history"
+        android:layout_below="@+id/orderInfo"
+        android:id="@+id/orderDetailPaymentsText" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/orderDetailPaymentsText"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:textColor="@android:color/background_light"
+        android:layout_below="@+id/orderInfo"
+        android:id="@+id/orderDetailPaymentsTotal"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollViewPaymentList"
+        android:layout_below="@+id/orderDetailPaymentsText">
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

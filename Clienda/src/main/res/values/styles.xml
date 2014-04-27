@@ -1,0 +1,21 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="android:Theme.Holo.Light">
+        <item name="android:actionBarStyle">@style/MyActionBar</item>
+        <item name="android:actionBarTabBarStyle">@style/MyTabBarStyle</item>
+    </style>
+
+    <!-- ActionBar styles -->
+    <style name="MyActionBar"
+        parent="android:Widget.Holo.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">@android:color/holo_green_dark</item>
+        <item name="android:icon">@drawable/ic_action_clienda_white</item>
+    </style>
+
+    <style name="MyTabBarStyle"
+        parent="android:Widget.Holo.Light.ActionBar.TabBar">
+        <item name="android:background">@android:color/background_light</item>
+    </style>
+
+</resources>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Clienda</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_new_order">Nuevo Pedido</string>
+    <string name="action_settings">Configuración</string>
+    <string name="title_activity_new_client">Nuevo Cliente</string>
+    <string name="title_activity_new_order">Nuevo Pedido</string>
+    <string name="search_title">Buscar</string>
+    <string name="title_activity_client_detail">Información del Cliente</string>
+    <string name="action_edit">Editar</string>
+    <string name="action_remove">Eliminar</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_edit_client">Editar Información</string>
+    <string name="confirm_delete">¿Eliminar este elemento?</string>
+    <string name="cancel">Cancelar</string>
+    <string name="delete">Eliminar</string>
+    <string name="title_activity_order_detail">Detalle del Pedido</string>
+    <string name="payments_history">Historial de Pagos</string>
+    <string name="title_activity_edit_order">Editar Pedido</string>
+    <string name="add_payment">Agregar Pago</string>
+    <string name="add">Agregar</string>
+    <string name="title_activity_client_order_history">Historial de Pedidos</string>
+    <string name="title_activity_select_client">Seleccionar un Cliente</string>
+    <string name="empty_orders">No hay pedidos registrados</string>
+    <string name="empty_clients">No hay clientes registrados</string>
+    <string name="client_no_orders">No tiene pedidos</string>
+    <string name="tab_orders_title">Pedidos por cobrar</string>
+    <string name="tab_clients_title">Clientes</string>
+    <string name="validation_client_name_required">Nombre del cliente es requerido</string>
+    <string name="validation_order_client_required">Seleccionar o crear un cliente</string>
+    <string name="validation_order_product_required">Nombre del producto es requerido</string>
+    <string name="validation_order_price_required">Precio del producto es requerido</string>
+    <string name="validation_order_price_greater_zero">Ingrese un valor mayor a cero</string>
+    <string name="validation_add_payments">El pedido ya fue pagado, si quieres agregar más pagos tienes que borrar un pago anterior.</string>
+    <string name="validation_payment_amount_required">Cantidad del pago es requerida</string>
+    <string name="validation_payment_amount_greater_zero">Ingrese un valor mayor a cero</string>
+    <string name="validation_payment_exceed_price">El total de pagos excede el monto total, ingrese un numero menor o igual a </string>
+    <string name="order_history">Historial de pedidos</string>
+    <string name="make_call">Hacer una llamada</string>
+    <string name="name">Nombre</string>
+    <string name="address">Dirección</string>
+    <string name="phone">Teléfono</string>
+    <string name="email">Correo electrónico</string>
+    <string name="notes">Notas</string>
+    <string name="save">Guardar</string>
+    <string name="select_client">Seleccionar un cliente</string>
+    <string name="product_name">Producto</string>
+    <string name="price">Precio</string>
+    <string name="select_date">Seleccionar Fecha</string>
+    <string name="change">Cambiar</string>
+    <string name="amount">Monto</string>
+    <string name="payments_empty">No hay pagos registrados</string>
+    <string name="last_order">Último pedido:&#160;</string>
+    <string name="date">Fecha</string>
+    <string name="currency">Moneda</string>
+    <string name="configuration_currency_summary">Establece el simbolo de la moneda (Ejem. $)</string>
+    <string name="order_debt">Por cobrar:&#160;</string>
+    <string name="order_price">Precio:&#160;</string>
+    <string name="quantity">Cantidad</string>
+    <string name="validation_order_quantity_required">Cantidad es requerida</string>
+    <string name="order_quantity">Cantidad:&#160;</string>
+    <string name="order_total">Total:&#160;</string>
+    <string name="call_client">LLamar</string>
+
+</resources>
