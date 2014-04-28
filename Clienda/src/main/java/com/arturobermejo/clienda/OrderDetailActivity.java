@@ -196,6 +196,7 @@ public class OrderDetailActivity extends FragmentActivity implements LoaderManag
             String total = currencySymbol + Float.toString(price * (float) quantity);
             Float debt =data.getFloat(data.getColumnIndex("debt"));
             String notes = data.getString(data.getColumnIndex(DataContract.Orders.ORDERS_KEY_NOTES));
+            notes = notes.equals("") ? getString(R.string.no_notes) : notes;
 
             mProduct.setText(product);
             mClient.setText(client);

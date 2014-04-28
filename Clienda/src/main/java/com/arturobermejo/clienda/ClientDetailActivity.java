@@ -126,6 +126,7 @@ public class ClientDetailActivity extends FragmentActivity implements LoaderMana
             String phone = data.getString(data.getColumnIndex(DataContract.Clients.CLIENTS_KEY_PHONE));
             String email = data.getString(data.getColumnIndex(DataContract.Clients.CLIENTS_KEY_EMAIL));
             String notes = data.getString(data.getColumnIndex(DataContract.Clients.CLIENTS_KEY_NOTES));
+            notes = notes.equals("") ? getString(R.string.no_notes) : notes;
 
             mName.setText(name);
             mAddress.setText(address);

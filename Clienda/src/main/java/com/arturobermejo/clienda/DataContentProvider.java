@@ -78,9 +78,9 @@ public class DataContentProvider extends ContentProvider {
                 break;
             case ORDERS:
                 queryBuilder.setTables(DataContract.Orders.SQL_JOIN_ORDERS_CLIENTS);
-                String having = selection == "client_id=?" ? null : "total_payments < orders.quantity*orders.price";
+                String having = selection == "client_id=?" ? null : "debt > 0";
                 cursor = queryBuilder.query(db,
-                        projection, selection, selectionArgs, "product", having, "orders.date DESC");
+                        projection, selection, selectionArgs, "product, order_id", having, "orders.date DESC");
                 break;
             case ORDERS_ID:
                 queryBuilder.setTables(DataContract.Orders.SQL_JOIN_ORDERS_CLIENTS);

@@ -63,5 +63,6 @@
     <string name="order_quantity">Quantity:&#160;</string>
     <string name="order_total">Total:&#160;</string>
     <string name="call_client">Call</string>
+    <string name="no_notes">There isn\'t notes.</string>
 
 </resources>
