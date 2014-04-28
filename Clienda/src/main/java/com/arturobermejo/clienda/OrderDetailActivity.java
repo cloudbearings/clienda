@@ -51,6 +51,7 @@ public class OrderDetailActivity extends FragmentActivity implements LoaderManag
     SharedPreferences sharedPref;
     Boolean is_collapsed = false;
     int layoutHeight;
+    Long clientId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,6 +90,9 @@ public class OrderDetailActivity extends FragmentActivity implements LoaderManag
         mPaymentsText = (TextView) findViewById(R.id.orderDetailPaymentsText);
         mPaymentsText.setOnClickListener(this);
         mTotalPayments.setOnClickListener(this);
+
+        // Client Detail
+        mClient.setOnClickListener(this);
     }
 
     @Override
@@ -169,6 +173,7 @@ public class OrderDetailActivity extends FragmentActivity implements LoaderManag
 
             String product = data.getString(data.getColumnIndex(DataContract.Orders.ORDERS_KEY_PRODUCT));
             String client = data.getString(data.getColumnIndex(DataContract.Clients.CLIENTS_KEY_NAME));
+            clientId = data.getLong(data.getColumnIndex(DataContract.Orders.ORDERS_KEY_CLIENT));
             String date = data.getString(data.getColumnIndex(DataContract.Orders.ORDERS_KEY_DATE));
             price = data.getFloat(data.getColumnIndex(DataContract.Orders.ORDERS_KEY_PRICE));
             totalPayments = data.getFloat(data.getColumnIndex("total_payments"));
@@ -253,6 +258,10 @@ public class OrderDetailActivity extends FragmentActivity implements LoaderManag
             }
             layout.setLayoutParams(params);
 
+        } else if (view == mClient) {
+            Intent intent = new Intent(this, ClientDetailActivity.class);
+            intent.putExtra("clientId", clientId);
+            startActivity(intent);
         }
     }
 }
