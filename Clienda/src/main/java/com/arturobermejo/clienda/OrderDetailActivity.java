@@ -193,7 +193,7 @@ public class OrderDetailActivity extends FragmentActivity implements LoaderManag
             price = data.getFloat(data.getColumnIndex(DataContract.Orders.ORDERS_KEY_PRICE));
             totalPayments = data.getFloat(data.getColumnIndex("total_payments"));
             quantity = data.getInt(data.getColumnIndex(DataContract.Orders.ORDERS_KEY_QUANTITY));
-            String total = currencySymbol + Integer.toString(Math.round(price*quantity));
+            String total = currencySymbol + Float.toString(price * (float) quantity);
             Float debt =data.getFloat(data.getColumnIndex("debt"));
             String notes = data.getString(data.getColumnIndex(DataContract.Orders.ORDERS_KEY_NOTES));
 
