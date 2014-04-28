@@ -46,11 +46,7 @@
 
         <activity
             android:name="com.arturobermejo.clienda.ClientDetailActivity"
-            android:label="@string/title_activity_client_detail"
-            android:parentActivityName="com.arturobermejo.clienda.MainActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.arturobermejo.clienda.MainActivity" />
+            android:label="@string/title_activity_client_detail" >
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />
             </intent-filter>
@@ -59,27 +55,15 @@
         </activity>
         <activity
             android:name="com.arturobermejo.clienda.EditClientActivity"
-            android:label="@string/title_activity_edit_client"
-            android:parentActivityName="com.arturobermejo.clienda.ClientDetailActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.arturobermejo.clienda.ClientDetailActivity" />
+            android:label="@string/title_activity_edit_client" >
         </activity>
         <activity
             android:name="com.arturobermejo.clienda.OrderDetailActivity"
-            android:label="@string/title_activity_order_detail"
-            android:parentActivityName="com.arturobermejo.clienda.MainActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.arturobermejo.clienda.MainActivity" />
+            android:label="@string/title_activity_order_detail" >
         </activity>
         <activity
             android:name="com.arturobermejo.clienda.EditOrderActivity"
-            android:label="@string/title_activity_edit_order"
-            android:parentActivityName="com.arturobermejo.clienda.OrderDetailActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.arturobermejo.clienda.OrderDetailActivity" />
+            android:label="@string/title_activity_edit_order" >
         </activity>
         <activity
             android:name="com.arturobermejo.clienda.SelectClientActivity"

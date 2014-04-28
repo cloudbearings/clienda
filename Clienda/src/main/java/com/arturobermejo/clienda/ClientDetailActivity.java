@@ -36,6 +36,8 @@ public class ClientDetailActivity extends FragmentActivity implements LoaderMana
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_client_detail);
 
+        getActionBar().setDisplayHomeAsUpEnabled(true);
+
         mName = (TextView) findViewById(R.id.clientDetailName);
         mAddress = (TextView) findViewById(R.id.clientDetailAddress);
         mPhone = (TextView) findViewById(R.id.clientDetailPhone);
@@ -75,23 +77,34 @@ public class ClientDetailActivity extends FragmentActivity implements LoaderMana
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            Intent intent = new Intent(this, SettingsActivity.class);
-            startActivity(intent);
-            return true;
-        } else if (id == R.id.action_edit) {
-            Intent intent = new Intent(this, EditClientActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            intent.putExtra(EXTRA_MESSAGE, clientId);
-            startActivity(intent);
-        } else if (id == R.id.action_remove) {
-            DialogFragment dialogFragment = new DialogConfirmDeleteFragment();
-            dialogFragment.show(getSupportFragmentManager(), "confirm-delete");
-        } else if (id == R.id.action_call) {
-            String number = "tel:" + mPhone.getText().toString().trim();
-            Intent callIntent = new Intent(Intent.ACTION_CALL, Uri.parse(number));
-            startActivity(callIntent);
+        Intent intent;
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+
+            case R.id.action_settings:
+                intent = new Intent(this, SettingsActivity.class);
+                startActivity(intent);
+                return true;
+
+            case R.id.action_edit:
+                intent = new Intent(this, EditClientActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.putExtra(EXTRA_MESSAGE, clientId);
+                startActivity(intent);
+                return true;
+
+            case R.id.action_remove:
+                DialogFragment dialogFragment = new DialogConfirmDeleteFragment();
+                dialogFragment.show(getSupportFragmentManager(), "confirm-delete");
+                return true;
+
+            case R.id.action_call:
+                String number = "tel:" + mPhone.getText().toString().trim();
+                intent = new Intent(Intent.ACTION_CALL, Uri.parse(number));
+                startActivity(intent);
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }

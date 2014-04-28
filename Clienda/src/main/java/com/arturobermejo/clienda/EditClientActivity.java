@@ -18,6 +18,8 @@ public class EditClientActivity extends FragmentActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_client);
 
+        getActionBar().setDisplayHomeAsUpEnabled(true);
+
         // Get client id
         Intent intent = getIntent();
         Long clientId = intent.getLongExtra(ClientListFragment.EXTRA_MESSAGE, 0);
@@ -45,11 +47,14 @@ public class EditClientActivity extends FragmentActivity  {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            Intent intent = new Intent(this, SettingsActivity.class);
-            startActivity(intent);
-            return true;
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            case R.id.action_settings:
+                Intent intent = new Intent(this, SettingsActivity.class);
+                startActivity(intent);
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }

@@ -1,5 +1,6 @@
 package com.arturobermejo.clienda;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
@@ -58,6 +59,8 @@ public class OrderDetailActivity extends FragmentActivity implements LoaderManag
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_detail);
 
+        getActionBar().setDisplayHomeAsUpEnabled(true);
+
         sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
 
         mProduct = (TextView) findViewById(R.id.orderDetailProduct);
@@ -108,30 +111,42 @@ public class OrderDetailActivity extends FragmentActivity implements LoaderManag
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            Intent intent = new Intent(this, SettingsActivity.class);
-            startActivity(intent);
-            return true;
-        } else if (id == R.id.action_add_payment) {
-            if (price - totalPayments == 0.0 ) {
-                String message = getString(R.string.validation_add_payments);
-                Toast toast = Toast.makeText(this, message, Toast.LENGTH_LONG);
-                toast.setGravity(Gravity.CENTER, 0, 0);
-                toast.show();
-            } else {
-                DialogFragment dialogFragment = new DialogAddPaymentFragment();
-                dialogFragment.show(getSupportFragmentManager(), "add-payment");
-            }
-        } else if (id == R.id.action_edit) {
-            Intent intent = new Intent(this, EditOrderActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            intent.putExtra(EXTRA_MESSAGE, orderId);
-            startActivity(intent);
-        } else if (id == R.id.action_remove) {
-            DialogFragment dialogFragment = new DialogConfirmDeleteFragment();
-            dialogFragment.show(getSupportFragmentManager(), "confirm-order-delete");
+        Intent intent;
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+
+            case R.id.action_settings:
+                intent = new Intent(this, SettingsActivity.class);
+                startActivity(intent);
+                return true;
+
+            case R.id.action_add_payment:
+                if (price - totalPayments == 0.0 ) {
+                    String message = getString(R.string.validation_add_payments);
+                    Toast toast = Toast.makeText(this, message, Toast.LENGTH_LONG);
+                    toast.setGravity(Gravity.CENTER, 0, 0);
+                    toast.show();
+                } else {
+                    DialogFragment dialogFragment = new DialogAddPaymentFragment();
+                    dialogFragment.show(getSupportFragmentManager(), "add-payment");
+                }
+                return true;
+
+            case R.id.action_edit:
+                intent = new Intent(this, EditOrderActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.putExtra(EXTRA_MESSAGE, orderId);
+                startActivity(intent);
+                return true;
+
+            case R.id.action_remove:
+                DialogFragment dialogFragment = new DialogConfirmDeleteFragment();
+                dialogFragment.show(getSupportFragmentManager(), "confirm-order-delete");
+                return true;
         }
+
         return super.onOptionsItemSelected(item);
     }
 
