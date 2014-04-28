@@ -34,6 +34,7 @@ public class OrderFormFragment extends Fragment implements View.OnClickListener 
     Button btnSelectClient, btnNewClient, btnChangeDate, btnSave, btnCancel;
     long dateInMillis;
     String clientId;
+    Long orderId;
 
     public OrderFormFragment() {}
 
@@ -103,7 +104,14 @@ public class OrderFormFragment extends Fragment implements View.OnClickListener 
                 values.put(DataContract.Orders.ORDERS_KEY_QUANTITY, mQuantity.getText().toString());
                 values.put(DataContract.Orders.ORDERS_KEY_DATE, dateInMillis);
                 values.put(DataContract.Orders.ORDERS_KEY_NOTES, mNotes.getText().toString());
-                getActivity().getContentResolver().insert(DataContract.Orders.CONTENT_URI, values);
+
+                if(getTag() == NEW_ORDER_TAG) {
+                    getActivity().getContentResolver().insert(DataContract.Orders.CONTENT_URI, values);
+                } else if (getTag() == EDIT_ORDER_TAG) {
+                    getActivity().getContentResolver().update(DataContract.Orders.CONTENT_URI, values,
+                            "_id=?", new String[] { orderId.toString() });
+                }
+
                 getActivity().finish();
             }
 
@@ -173,7 +181,7 @@ public class OrderFormFragment extends Fragment implements View.OnClickListener 
     }
 
     private void setData() {
-        Long orderId = getArguments().getLong("orderId");
+        orderId = getArguments().getLong("orderId");
         Cursor data = getActivity().getContentResolver().query(DataContract.Orders.CONTENT_URI, DataContract.Orders.JOIN_PROJECTION,
                 "orders._id=?", new String[] {orderId.toString()}, null);
 
