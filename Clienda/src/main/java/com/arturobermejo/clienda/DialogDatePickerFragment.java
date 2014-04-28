@@ -18,7 +18,7 @@ import java.util.GregorianCalendar;
 public class DialogDatePickerFragment  extends DialogFragment implements DatePickerDialog.OnDateSetListener {
 
     public interface DialogDatePickerListener {
-        public void onDialogPositiveClick(DatePicker view, int year, int month, int day);
+        public void onSetDate(DatePicker view, int year, int month, int day);
     }
 
     DialogDatePickerListener mListener;
@@ -51,6 +51,6 @@ public class DialogDatePickerFragment  extends DialogFragment implements DatePic
 
     @Override
     public void onDateSet(DatePicker view, int year, int month, int day) {
-        mListener.onDialogPositiveClick(view, year, month, day);
+        mListener.onSetDate(view, year, month, day);
     }
 }
