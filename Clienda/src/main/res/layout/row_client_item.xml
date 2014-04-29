@@ -12,7 +12,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:id="@+id/clientItemName"
         android:textStyle="italic"
-        android:textColor="@android:color/holo_blue_dark" />
+        android:textColor="#0099CC" />
 
     <TextView
         android:layout_width="wrap_content"

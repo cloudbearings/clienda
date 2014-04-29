@@ -30,11 +30,7 @@
         </activity>
         <activity
             android:name="com.arturobermejo.clienda.NewOrderActivity"
-            android:label="@string/title_activity_new_order"
-            android:parentActivityName="com.arturobermejo.clienda.NewClientActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.arturobermejo.clienda.NewClientActivity" />
+            android:label="@string/title_activity_new_order" >
         </activity>
 
         <provider

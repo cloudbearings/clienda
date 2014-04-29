@@ -5,11 +5,12 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
 
-public class NewClientActivity extends FragmentActivity {
+public class NewClientActivity extends ActionBarActivity {
 
     private static final String TAG = "clienda-new-client";
     Fragment clientFormFragment;
@@ -19,7 +20,7 @@ public class NewClientActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_client);
 
-        getActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         // Load order form fragment
         clientFormFragment = getSupportFragmentManager().findFragmentByTag(ClientFormFragment.NEW_CLIENT_TAG);

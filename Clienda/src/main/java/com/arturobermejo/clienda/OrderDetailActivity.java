@@ -18,6 +18,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
@@ -36,7 +37,7 @@ import java.text.DateFormat;
 import java.util.Date;
 
 
-public class OrderDetailActivity extends FragmentActivity implements LoaderManager.LoaderCallbacks<Cursor>,
+public class OrderDetailActivity extends ActionBarActivity implements LoaderManager.LoaderCallbacks<Cursor>,
              DialogConfirmDeleteFragment.DialogConfirmDeleteListener, DialogAddPaymentFragment.DialogAddPaymentListener,
              View.OnClickListener {
 
@@ -60,7 +61,7 @@ public class OrderDetailActivity extends FragmentActivity implements LoaderManag
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_detail);
 
-        getActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         if (savedInstanceState != null) {
             orderId = savedInstanceState.getLong("orderId");
@@ -281,7 +282,7 @@ public class OrderDetailActivity extends FragmentActivity implements LoaderManag
             } else {
                 params = (RelativeLayout.LayoutParams) layout.getLayoutParams();
                 layoutHeight = params.height;
-                params.height = 70;
+                params.height = 0;
                 is_collapsed = true;
             }
             layout.setLayoutParams(params);

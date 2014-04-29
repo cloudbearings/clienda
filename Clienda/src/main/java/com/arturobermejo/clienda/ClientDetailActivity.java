@@ -12,6 +12,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,7 +22,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 
-public class ClientDetailActivity extends FragmentActivity implements LoaderManager.LoaderCallbacks<Cursor>,
+public class ClientDetailActivity extends ActionBarActivity implements LoaderManager.LoaderCallbacks<Cursor>,
         DialogConfirmDeleteFragment.DialogConfirmDeleteListener, View.OnClickListener {
 
     private static final String TAG = "clienda-client-detail";
@@ -38,7 +39,7 @@ public class ClientDetailActivity extends FragmentActivity implements LoaderMana
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_client_detail);
 
-        getActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         if (savedInstanceState != null) {
             clientId = savedInstanceState.getLong("clientId");
@@ -179,7 +180,7 @@ public class ClientDetailActivity extends FragmentActivity implements LoaderMana
             } else {
                 params = (RelativeLayout.LayoutParams) layout.getLayoutParams();
                 layoutHeight = params.height;
-                params.height = 50;
+                params.height = 0;
                 is_collapsed = true;
             }
             layout.setLayoutParams(params);

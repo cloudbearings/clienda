@@ -3,6 +3,7 @@ package com.arturobermejo.clienda;
 /**
  * Created by abermejo on 4/22/14.
  */
+
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -58,7 +59,7 @@ public class CustomAlertDialogBuilder extends AlertDialog.Builder {
         return this;
     }
 
-    @Override
+    /*@Override
     public CustomAlertDialogBuilder setNegativeButton(int textId, DialogInterface.OnClickListener listener) {
         setNegativeButton(getContext().getString(textId), listener);
         return this;
@@ -74,7 +75,7 @@ public class CustomAlertDialogBuilder extends AlertDialog.Builder {
     public CustomAlertDialogBuilder setPositiveButton(int textId, DialogInterface.OnClickListener listener) {
         setPositiveButton(getContext().getString(textId), listener);
         return this;
-    }
+    }*/
 
     public CustomAlertDialogBuilder setCanceledOnTouchOutside (boolean cancelOnTouchOutside) {
         mCancelOnTouchOutside = cancelOnTouchOutside;

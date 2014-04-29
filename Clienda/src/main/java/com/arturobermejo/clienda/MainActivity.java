@@ -1,20 +1,22 @@
 package com.arturobermejo.clienda;
 
-import android.app.ActionBar;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
 
-public class MainActivity extends FragmentActivity {
+public class MainActivity extends ActionBarActivity implements ActionBar.TabListener {
 
     private static final String TAG = "clienda-main";
     MainAdapter mMainAdapter;
     ViewPager mViewPager;
+    ActionBar actionBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,35 +30,11 @@ public class MainActivity extends FragmentActivity {
         mViewPager.setAdapter(mMainAdapter);
 
         // Adding tabs to Action Bar
-        final ActionBar actionBar = getActionBar();
+        actionBar = getSupportActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
-        ActionBar.TabListener tabListener = new ActionBar.TabListener() {
-            @Override
-            public void onTabSelected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
-                int tabPosition = tab.getPosition();
-                mViewPager.setCurrentItem(tabPosition);
-
-                if (tabPosition==0) {
-                    actionBar.setSubtitle(getString(R.string.tab_orders_title));
-                } else if (tabPosition == 1)  {
-                    actionBar.setSubtitle(getString(R.string.tab_clients_title));
-                }
-            }
-
-            @Override
-            public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
-
-            }
-
-            @Override
-            public void onTabReselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
-
-            }
-        };
-
-        actionBar.addTab(actionBar.newTab().setIcon(R.drawable.ic_tab_order_list).setTabListener(tabListener));
-        actionBar.addTab(actionBar.newTab().setIcon(R.drawable.ic_tab_client_list).setTabListener(tabListener));
+        actionBar.addTab(actionBar.newTab().setIcon(R.drawable.ic_tab_order_list).setTabListener(this));
+        actionBar.addTab(actionBar.newTab().setIcon(R.drawable.ic_tab_client_list).setTabListener(this));
 
         mViewPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
             @Override
@@ -98,4 +76,25 @@ public class MainActivity extends FragmentActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onTabSelected(ActionBar.Tab tab, android.support.v4.app.FragmentTransaction fragmentTransaction) {
+        int tabPosition = tab.getPosition();
+        mViewPager.setCurrentItem(tabPosition);
+
+        if (tabPosition==0) {
+            actionBar.setSubtitle(getString(R.string.tab_orders_title));
+        } else if (tabPosition == 1)  {
+            actionBar.setSubtitle(getString(R.string.tab_clients_title));
+        }
+    }
+
+    @Override
+    public void onTabUnselected(ActionBar.Tab tab, android.support.v4.app.FragmentTransaction fragmentTransaction) {
+
+    }
+
+    @Override
+    public void onTabReselected(ActionBar.Tab tab, android.support.v4.app.FragmentTransaction fragmentTransaction) {
+
+    }
 }

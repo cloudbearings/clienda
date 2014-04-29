@@ -5,12 +5,13 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.DatePicker;
 
 
-public class NewOrderActivity extends FragmentActivity implements DialogDatePickerFragment.DialogDatePickerListener {
+public class NewOrderActivity extends ActionBarActivity implements DialogDatePickerFragment.DialogDatePickerListener {
 
     private static final String TAG = "clienda-new-order";
     Fragment orderFormFragment;
@@ -20,7 +21,7 @@ public class NewOrderActivity extends FragmentActivity implements DialogDatePick
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_order);
 
-        getActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         // Load order form fragment
         orderFormFragment = getSupportFragmentManager().findFragmentByTag(OrderFormFragment.NEW_ORDER_TAG);
@@ -46,11 +47,16 @@ public class NewOrderActivity extends FragmentActivity implements DialogDatePick
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            Intent intent = new Intent(this, SettingsActivity.class);
-            startActivity(intent);
-            return true;
+        Intent intent;
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+
+            case R.id.action_settings:
+                intent = new Intent(this, SettingsActivity.class);
+                startActivity(intent);
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }

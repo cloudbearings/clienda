@@ -25,7 +25,7 @@
             android:id="@+id/orderDetailProduct"
             android:layout_below="@+id/orderDetailDate"
             android:textStyle="italic"
-            android:textColor="@android:color/holo_blue_dark" />
+            android:textColor="#0099CC" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -42,7 +42,7 @@
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:layout_below="@+id/orderDetailClient"
             android:text="@string/order_price"
-            android:textColor="@android:color/holo_blue_dark"
+            android:textColor="#0099CC"
             android:id="@+id/orderDetailPriceText"
             android:layout_marginTop="5dp"
             android:textStyle="bold"/>
@@ -62,7 +62,7 @@
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:layout_below="@+id/orderDetailPriceText"
             android:text="@string/order_quantity"
-            android:textColor="@android:color/holo_blue_dark"
+            android:textColor="#0099CC"
             android:id="@+id/orderDetailQuantityText"
             android:layout_marginTop="5dp"
             android:textStyle="bold"/>
@@ -83,7 +83,7 @@
             android:layout_below="@+id/orderDetailClient"
             android:layout_toLeftOf="@+id/orderDetailDebt"
             android:text="@string/order_total"
-            android:textColor="@android:color/holo_blue_dark"
+            android:textColor="#0099CC"
             android:id="@+id/orderDetailTotalText"
             android:layout_marginTop="5dp"
             android:textStyle="bold"/>
@@ -104,7 +104,7 @@
             android:layout_below="@+id/orderDetailPriceText"
             android:layout_toLeftOf="@+id/orderDetailDebt"
             android:text="@string/order_debt"
-            android:textColor="@android:color/holo_red_light"
+            android:textColor="#FF4444"
             android:id="@+id/orderDetailDebtText"
             android:layout_marginTop="5dp"
             android:textStyle="bold"/>
@@ -130,7 +130,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/holo_red_light"
+        android:background="#FF4444"
         android:textColor="@android:color/background_light"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"

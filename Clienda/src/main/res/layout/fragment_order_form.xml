@@ -18,12 +18,12 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:layout_marginBottom="20dp">
 
             <Button
                 android:layout_width="0dp"
-                android:background="@android:color/holo_blue_dark"
+                android:background="#0099CC"
                 android:textColor="@android:color/background_light"
                 android:layout_marginRight="10dp"
                 android:layout_height="match_parent"
@@ -33,7 +33,7 @@
 
             <Button
                 style="?android:attr/buttonStyleSmall"
-                android:background="@android:color/holo_blue_dark"
+                android:background="#0099CC"
                 android:textColor="@android:color/background_light"
                 android:layout_width="50dp"
                 android:layout_height="match_parent"
@@ -67,11 +67,11 @@
 
         <Button
             style="?android:attr/buttonStyleSmall"
-            android:background="@android:color/holo_blue_dark"
+            android:background="#0099CC"
             android:textColor="@android:color/background_light"
             android:layout_marginBottom="20dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:text="@string/change"
             android:id="@+id/formOrderChangeDate" />
 
@@ -87,19 +87,19 @@
             android:layout_height="wrap_content">
             <Button
                 android:layout_width="100dp"
-                android:background="@android:color/holo_green_dark"
+                android:background="#669900"
                 android:textColor="@android:color/background_light"
                 android:layout_marginRight="5dp"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
                 android:layout_weight="1"
                 android:text="@string/save"
                 android:id="@+id/formOrderSave" />
             <Button
                 android:layout_width="100dp"
                 android:layout_marginLeft="5dp"
-                android:background="@android:color/holo_red_light"
+                android:background="#FF4444"
                 android:textColor="@android:color/background_light"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
                 android:layout_weight="1"
                 android:text="@string/cancel"
                 android:id="@+id/formOrderCancel" />

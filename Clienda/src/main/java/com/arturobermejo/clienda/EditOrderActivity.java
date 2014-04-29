@@ -5,12 +5,13 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.DatePicker;
 
 
-public class EditOrderActivity extends FragmentActivity implements DialogDatePickerFragment.DialogDatePickerListener {
+public class EditOrderActivity extends ActionBarActivity implements DialogDatePickerFragment.DialogDatePickerListener {
 
     private static final String TAG = "clienda-edit-order";
     Fragment orderFormFragment;
@@ -20,7 +21,7 @@ public class EditOrderActivity extends FragmentActivity implements DialogDatePic
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_order);
 
-        getActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         // Get order id
         Intent intent = getIntent();

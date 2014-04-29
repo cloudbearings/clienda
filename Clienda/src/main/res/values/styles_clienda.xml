@@ -19,65 +19,65 @@
 
 <resources>
 
-    <style name="Theme.Clienda" parent="@android:style/Theme.Holo.Light.DarkActionBar">
-        <item name="android:actionBarItemBackground">@drawable/selectable_background_clienda</item>
-        <item name="android:popupMenuStyle">@style/PopupMenu.Clienda</item>
-        <item name="android:dropDownListViewStyle">@style/DropDownListView.Clienda</item>
-        <item name="android:actionBarTabStyle">@style/ActionBarTabStyle.Clienda</item>
-        <item name="android:actionDropDownStyle">@style/DropDownNav.Clienda</item>
-        <item name="android:actionBarStyle">@style/ActionBar.Solid.Clienda</item>
-        <item name="android:actionModeBackground">@drawable/cab_background_top_clienda</item>
-        <item name="android:actionModeSplitBackground">@drawable/cab_background_bottom_clienda</item>
-        <item name="android:actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Clienda</item>
-        
+    <style name="Theme.Clienda" parent="@style/Theme.AppCompat.Light.DarkActionBar">
+        <item name="actionBarItemBackground">@drawable/selectable_background_clienda</item>
+        <item name="popupMenuStyle">@style/PopupMenu.Clienda</item>
+        <item name="dropDownListViewStyle">@style/DropDownListView.Clienda</item>
+        <item name="actionBarTabStyle">@style/ActionBarTabStyle.Clienda</item>
+        <item name="actionDropDownStyle">@style/DropDownNav.Clienda</item>
+        <item name="actionBarStyle">@style/ActionBar.Solid.Clienda</item>
+        <item name="actionModeBackground">@drawable/cab_background_top_clienda</item>
+        <item name="actionModeSplitBackground">@drawable/cab_background_bottom_clienda</item>
+        <item name="actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Clienda</item>
+
                 <!-- Light.DarkActionBar specific -->
-        <item name="android:actionBarWidgetTheme">@style/Theme.Clienda.Widget</item>
+        <item name="actionBarWidgetTheme">@style/Theme.Clienda.Widget</item>
 
     </style>
 
-    <style name="ActionBar.Solid.Clienda" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
-        <item name="android:background">@drawable/ab_solid_clienda</item>
-        <item name="android:backgroundStacked">@drawable/ab_stacked_solid_clienda</item>
-        <item name="android:backgroundSplit">@drawable/ab_bottom_solid_clienda</item>
-        <item name="android:progressBarStyle">@style/ProgressBar.Clienda</item>
-        <item name="android:icon">@drawable/ic_action_clienda_white</item>
+    <style name="ActionBar.Solid.Clienda" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+        <item name="background">@drawable/ab_solid_clienda</item>
+        <item name="backgroundStacked">@drawable/ab_stacked_solid_clienda</item>
+        <item name="backgroundSplit">@drawable/ab_bottom_solid_clienda</item>
+        <item name="progressBarStyle">@style/ProgressBar.Clienda</item>
+        <item name="icon">@drawable/ic_action_clienda_white</item>
     </style>
 
-    <style name="ActionBar.Transparent.Clienda" parent="@android:style/Widget.Holo.ActionBar">
-        <item name="android:background">@drawable/ab_transparent_clienda</item>
-        <item name="android:progressBarStyle">@style/ProgressBar.Clienda</item>
+    <style name="ActionBar.Transparent.Clienda" parent="@style/Widget.AppCompat.ActionBar">
+        <item name="background">@drawable/ab_transparent_clienda</item>
+        <item name="progressBarStyle">@style/ProgressBar.Clienda</item>
     </style>
-
-    <style name="PopupMenu.Clienda" parent="@android:style/Widget.Holo.ListPopupWindow">
+	
+    <style name="PopupMenu.Clienda" parent="@style/Widget.AppCompat.PopupMenu">	
         <item name="android:popupBackground">@drawable/menu_dropdown_panel_clienda</item>	
     </style>
-
-    <style name="DropDownListView.Clienda" parent="@android:style/Widget.Holo.ListView.DropDown">
+	
+    <style name="DropDownListView.Clienda" parent="@style/Widget.AppCompat.ListView.DropDown">
         <item name="android:listSelector">@drawable/selectable_background_clienda</item>
     </style>
 
-    <style name="ActionBarTabStyle.Clienda" parent="@android:style/Widget.Holo.ActionBar.TabView">
+    <style name="ActionBarTabStyle.Clienda" parent="@style/Widget.AppCompat.ActionBar.TabView">
         <item name="android:background">@drawable/tab_indicator_ab_clienda</item>
     </style>
-
-    <style name="DropDownNav.Clienda" parent="@android:style/Widget.Holo.Spinner">
+	
+    <style name="DropDownNav.Clienda" parent="@style/Widget.AppCompat.Spinner.DropDown.ActionBar">
         <item name="android:background">@drawable/spinner_background_ab_clienda</item>
         <item name="android:popupBackground">@drawable/menu_dropdown_panel_clienda</item>
         <item name="android:dropDownSelector">@drawable/selectable_background_clienda</item>
     </style>
     
-    <style name="ProgressBar.Clienda" parent="@android:style/Widget.Holo.ProgressBar.Horizontal">
+    <style name="ProgressBar.Clienda" parent="@style/Widget.AppCompat.ProgressBar.Horizontal">
         <item name="android:progressDrawable">@drawable/progress_horizontal_clienda</item>
     </style>
     
-    <style name="ActionButton.CloseMode.Clienda" parent="@android:style/Widget.Holo.ActionButton.CloseMode">
+    <style name="ActionButton.CloseMode.Clienda" parent="@style/Widget.AppCompat.ActionButton.CloseMode">
         <item name="android:background">@drawable/btn_cab_done_clienda</item>
     </style>
-
+    
     <!-- this style is only referenced in a Light.DarkActionBar based theme -->
-    <style name="Theme.Clienda.Widget" parent="@android:style/Theme.Holo">
-        <item name="android:popupMenuStyle">@style/PopupMenu.Clienda</item>
-        <item name="android:dropDownListViewStyle">@style/DropDownListView.Clienda</item>
+    <style name="Theme.Clienda.Widget" parent="@style/Theme.AppCompat">
+        <item name="popupMenuStyle">@style/PopupMenu.Clienda</item>
+        <item name="dropDownListViewStyle">@style/DropDownListView.Clienda</item>
     </style>
 
 </resources>
