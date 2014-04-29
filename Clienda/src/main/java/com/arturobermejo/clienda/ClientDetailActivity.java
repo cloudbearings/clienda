@@ -31,12 +31,20 @@ public class ClientDetailActivity extends FragmentActivity implements LoaderMana
     Boolean is_collapsed = false;
     int layoutHeight;
 
+    private Fragment orderListFragment;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_client_detail);
 
         getActionBar().setDisplayHomeAsUpEnabled(true);
+
+        if (savedInstanceState != null) {
+            clientId = savedInstanceState.getLong("clientId");
+        } else {
+            clientId = getIntent().getLongExtra(ClientListFragment.EXTRA_MESSAGE, 0);
+        }
 
         mName = (TextView) findViewById(R.id.clientDetailName);
         mAddress = (TextView) findViewById(R.id.clientDetailAddress);
@@ -45,24 +53,30 @@ public class ClientDetailActivity extends FragmentActivity implements LoaderMana
         mNotes = (TextView) findViewById(R.id.clientDetailNotes);
         mOrderHistoryText = (TextView) findViewById(R.id.orderHistoryText);
 
-        Intent intent = getIntent();
-        clientId = intent.getLongExtra(ClientListFragment.EXTRA_MESSAGE, 0);
-
         // Load order history list fragment
-        Bundle bundle = new Bundle();
-        bundle.putLong(EXTRA_MESSAGE, clientId);
-        Fragment orderListFragment = new OrderListFragment();
-        orderListFragment.setArguments(bundle);
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(R.id.clientOrderHistory, orderListFragment, "order-history-fragment");
-        fragmentTransaction.commit();
+        orderListFragment = getSupportFragmentManager().findFragmentByTag("order-history-fragment");
+
+        if (orderListFragment == null) {
+            Bundle bundle = new Bundle();
+            bundle.putLong(EXTRA_MESSAGE, clientId);
+            orderListFragment = new OrderListFragment();
+            orderListFragment.setArguments(bundle);
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.add(R.id.clientOrderHistory, orderListFragment, "order-history-fragment");
+            fragmentTransaction.commit();
+        }
 
         getSupportLoaderManager().initLoader(0, null, this);
 
         mOrderHistoryText.setOnClickListener(this);
     }
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putLong("clientId", clientId);
+        super.onSaveInstanceState(outState);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -53,6 +53,7 @@ public class OrderDetailActivity extends FragmentActivity implements LoaderManag
     Boolean is_collapsed = false;
     int layoutHeight;
     Long clientId;
+    Fragment paymentListFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +61,12 @@ public class OrderDetailActivity extends FragmentActivity implements LoaderManag
         setContentView(R.layout.activity_order_detail);
 
         getActionBar().setDisplayHomeAsUpEnabled(true);
+
+        if (savedInstanceState != null) {
+            orderId = savedInstanceState.getLong("clientId");
+        } else {
+            orderId = getIntent().getLongExtra(OrderListFragment.EXTRA_MESSAGE, 0);
+        }
 
         sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
 
@@ -73,21 +80,21 @@ public class OrderDetailActivity extends FragmentActivity implements LoaderManag
         mDate = (TextView) findViewById(R.id.orderDetailDate);
         mNotes = (TextView) findViewById(R.id.orderDetailNotes);
 
-
-        Intent intent = getIntent();
-        orderId = intent.getLongExtra(OrderListFragment.EXTRA_MESSAGE, 0);
-
         getSupportLoaderManager().initLoader(ORDER_LOADER, null, this);
 
-        // Add fragment payment list
-        Bundle bundle = new Bundle();
-        bundle.putLong(EXTRA_MESSAGE, orderId);
-        Fragment paymentListFragment = new PaymentListFragment();
-        paymentListFragment.setArguments(bundle);
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(R.id.scrollViewPaymentList, paymentListFragment, "payment-list-fragment");
-        fragmentTransaction.commit();
+        // Load payments list fragment
+        paymentListFragment = getSupportFragmentManager().findFragmentByTag("payment-list-fragment");
+
+        if (paymentListFragment == null) {
+            Bundle bundle = new Bundle();
+            bundle.putLong(EXTRA_MESSAGE, orderId);
+            paymentListFragment = new PaymentListFragment();
+            paymentListFragment.setArguments(bundle);
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.add(R.id.scrollViewPaymentList, paymentListFragment, "payment-list-fragment");
+            fragmentTransaction.commit();
+        }
 
         // Animation click
         mPaymentsText = (TextView) findViewById(R.id.orderDetailPaymentsText);
@@ -96,6 +103,12 @@ public class OrderDetailActivity extends FragmentActivity implements LoaderManag
 
         // Client Detail
         mClient.setOnClickListener(this);
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putLong("orderId", orderId);
+        super.onSaveInstanceState(outState);
     }
 
     @Override
