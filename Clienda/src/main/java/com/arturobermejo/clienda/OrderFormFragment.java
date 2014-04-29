@@ -77,10 +77,38 @@ public class OrderFormFragment extends Fragment implements View.OnClickListener 
         btnCancel = (Button) getView().findViewById(R.id.formOrderCancel);
         btnCancel.setOnClickListener(this);
 
+        // Restore values
+        if (savedInstanceState != null) {
+            clientId = savedInstanceState.getString("clientId");
+            setViewValues(savedInstanceState.getString("clientName"),
+                    savedInstanceState.getString("product"),
+                    savedInstanceState.getString("price"),
+                    savedInstanceState.getString("quantity"),
+                    savedInstanceState.getString("date"),
+                    savedInstanceState.getString("notes"));
+        }
+
         // Set data for edit mode
         if(getTag() == EDIT_ORDER_TAG){
             setData();
         }
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("clientId", clientId);
+        outState.putString("clientName", btnSelectClient.getText().toString());
+        outState.putString("product", mProduct.getText().toString());
+        outState.putString("price", mPrice.getText().toString());
+        outState.putString("quantity", mQuantity.getText().toString());
+        outState.putString("date", Long.toString(dateInMillis));
+        outState.putString("notes", mNotes.getText().toString());
+    }
+
+    @Override
+    public void onViewStateRestored(Bundle savedInstanceState) {
+        super.onViewStateRestored(savedInstanceState);
     }
 
     @Override
@@ -195,15 +223,20 @@ public class OrderFormFragment extends Fragment implements View.OnClickListener 
             String date = data.getString(data.getColumnIndex(DataContract.Orders.ORDERS_KEY_DATE));
             String notes = data.getString(data.getColumnIndex(DataContract.Orders.ORDERS_KEY_NOTES));
 
-            mProduct.setText(product);
-            btnSelectClient.setText(client);
-            mPrice.setText(price);
-            mQuantity.setText(Integer.toString(quantity));
-            dateInMillis = Long.parseLong(date);
-            String dateString = DateFormat.getDateInstance().format(new Date(dateInMillis));
-            btnChangeDate.setText(dateString);
-            mNotes.setText(notes);
+            setViewValues(client, product, price, Integer.toString(quantity), date, notes);
         }
+    }
+
+    private void setViewValues(String client, String product, String price,
+                              String quantity, String date, String notes) {
+        btnSelectClient.setText(client);
+        mProduct.setText(product);
+        mPrice.setText(price);
+        mQuantity.setText(quantity);
+        dateInMillis = Long.parseLong(date);
+        String dateString = DateFormat.getDateInstance().format(new Date(dateInMillis));
+        btnChangeDate.setText(dateString);
+        mNotes.setText(notes);
     }
 
 }

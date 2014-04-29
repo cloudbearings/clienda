@@ -1,24 +1,16 @@
 package com.arturobermejo.clienda;
 
 import android.app.ActionBar;
-import android.app.Activity;
 import android.app.FragmentTransaction;
-import android.app.SearchManager;
-import android.content.Context;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.preference.PreferenceActivity;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.SearchView;
 
 
-public class MainActivity extends FragmentActivity /*implements SearchView.OnQueryTextListener */{
+public class MainActivity extends FragmentActivity {
 
     private static final String TAG = "clienda-main";
     MainAdapter mMainAdapter;

@@ -149,7 +149,6 @@ public class OrderDetailActivity extends FragmentActivity implements LoaderManag
 
             case R.id.action_edit:
                 intent = new Intent(this, EditOrderActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 intent.putExtra(EXTRA_MESSAGE, orderId);
                 startActivity(intent);
                 return true;

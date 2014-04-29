@@ -12,6 +12,7 @@ import android.view.MenuItem;
 public class NewClientActivity extends FragmentActivity {
 
     private static final String TAG = "clienda-new-client";
+    Fragment clientFormFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,10 +22,14 @@ public class NewClientActivity extends FragmentActivity {
         getActionBar().setDisplayHomeAsUpEnabled(true);
 
         // Load order form fragment
-        Fragment clientFormFragment = new ClientFormFragment();
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.add(R.id.newClientActivity, clientFormFragment, ClientFormFragment.NEW_CLIENT_TAG);
-        fragmentTransaction.commit();
+        clientFormFragment = getSupportFragmentManager().findFragmentByTag(ClientFormFragment.NEW_CLIENT_TAG);
+
+        if (clientFormFragment == null) {
+            clientFormFragment = new ClientFormFragment();
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.add(R.id.newClientActivity, clientFormFragment, ClientFormFragment.NEW_CLIENT_TAG);
+            fragmentTransaction.commit();
+        }
     }
 
     @Override
@@ -40,12 +45,18 @@ public class NewClientActivity extends FragmentActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            Intent intent = new Intent(this, SettingsActivity.class);
-            startActivity(intent);
-            return true;
+        Intent intent;
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+
+            case R.id.action_settings:
+                intent = new Intent(this, SettingsActivity.class);
+                startActivity(intent);
+                return true;
         }
+
         return super.onOptionsItemSelected(item);
     }
 

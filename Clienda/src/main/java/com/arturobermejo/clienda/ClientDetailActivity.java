@@ -104,7 +104,6 @@ public class ClientDetailActivity extends FragmentActivity implements LoaderMana
 
             case R.id.action_edit:
                 intent = new Intent(this, EditClientActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 intent.putExtra(EXTRA_MESSAGE, clientId);
                 startActivity(intent);
                 return true;
