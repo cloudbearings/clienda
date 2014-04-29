@@ -63,7 +63,7 @@ public class OrderDetailActivity extends FragmentActivity implements LoaderManag
         getActionBar().setDisplayHomeAsUpEnabled(true);
 
         if (savedInstanceState != null) {
-            orderId = savedInstanceState.getLong("clientId");
+            orderId = savedInstanceState.getLong("orderId");
         } else {
             orderId = getIntent().getLongExtra(OrderListFragment.EXTRA_MESSAGE, 0);
         }

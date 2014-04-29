@@ -153,6 +153,7 @@ public class DataContentProvider extends ContentProvider {
                 break;
             case PAYMENTS: case PAYMENTS_ID:
                 rows = db.delete(DataContract.Payments.PAYMENTS_TABLE_NAME, selection, selectionArgs);
+                getContext().getContentResolver().notifyChange(DataContract.Orders.CONTENT_URI, null);
                 break;
         }
         getContext().getContentResolver().notifyChange(uri, null);
