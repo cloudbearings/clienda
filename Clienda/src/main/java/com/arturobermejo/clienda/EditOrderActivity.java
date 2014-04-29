@@ -13,6 +13,7 @@ import android.widget.DatePicker;
 public class EditOrderActivity extends FragmentActivity implements DialogDatePickerFragment.DialogDatePickerListener {
 
     private static final String TAG = "clienda-edit-order";
+    Fragment orderFormFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,13 +27,17 @@ public class EditOrderActivity extends FragmentActivity implements DialogDatePic
         Long orderId = intent.getLongExtra("orderId", 0);
 
         // Load order form fragment
-        Bundle bundle = new Bundle();
-        bundle.putLong("orderId", orderId);
-        Fragment orderFormFragment = new OrderFormFragment();
-        orderFormFragment.setArguments(bundle);
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.add(R.id.newOrderActivity, orderFormFragment, OrderFormFragment.EDIT_ORDER_TAG);
-        fragmentTransaction.commit();
+        orderFormFragment = getSupportFragmentManager().findFragmentByTag(OrderFormFragment.EDIT_ORDER_TAG);
+
+        if (orderFormFragment == null) {
+            Bundle bundle = new Bundle();
+            bundle.putLong("orderId", orderId);
+            orderFormFragment = new OrderFormFragment();
+            orderFormFragment.setArguments(bundle);
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.add(R.id.newOrderActivity, orderFormFragment, OrderFormFragment.EDIT_ORDER_TAG);
+            fragmentTransaction.commit();
+        }
     }
 
     @Override

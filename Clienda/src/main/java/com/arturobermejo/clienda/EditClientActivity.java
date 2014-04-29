@@ -12,6 +12,7 @@ import android.view.MenuItem;
 public class EditClientActivity extends FragmentActivity  {
 
     private static final String TAG = "clienda-edit-client";
+    Fragment clientFormFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,13 +26,17 @@ public class EditClientActivity extends FragmentActivity  {
         Long clientId = intent.getLongExtra(ClientListFragment.EXTRA_MESSAGE, 0);
 
         // Load client form fragment
-        Bundle bundle = new Bundle();
-        bundle.putLong("clientId", clientId);
-        Fragment clientFormFragment = new ClientFormFragment();
-        clientFormFragment.setArguments(bundle);
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.add(R.id.newClientActivity, clientFormFragment, ClientFormFragment.EDIT_CLIENT_TAG);
-        fragmentTransaction.commit();
+        clientFormFragment = getSupportFragmentManager().findFragmentByTag(ClientFormFragment.EDIT_CLIENT_TAG);
+
+        if (clientFormFragment == null) {
+            Bundle bundle = new Bundle();
+            bundle.putLong("clientId", clientId);
+            clientFormFragment = new ClientFormFragment();
+            clientFormFragment.setArguments(bundle);
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.add(R.id.newClientActivity, clientFormFragment, ClientFormFragment.EDIT_CLIENT_TAG);
+            fragmentTransaction.commit();
+        }
     }
 
     @Override
