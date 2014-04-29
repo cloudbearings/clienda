@@ -61,12 +61,6 @@ public class DataContentProvider extends ContentProvider {
 
         switch (uriType) {
             case CLIENTS:
-                /*cursor = db.rawQuery("select _id, name, product as last_order, total(price) - total(amount) debt \n" +
-                        "from (select clients.*, orders.product, orders.date, orders.price, amount from clients\n" +
-                        "left join orders on clients._id = orders.client_id\n" +
-                        "left join payments on orders._id = payments.order_id\n" +
-                        "order by clients.name, orders.date)\n" +
-                        "group by name", null);*/
                 queryBuilder.setTables(DataContract.Clients.SQL_JOIN_TABLES);
                 cursor = queryBuilder.query(db,
                         projection, selection, selectionArgs, "name", null, "name COLLATE NOCASE");
@@ -80,12 +74,12 @@ public class DataContentProvider extends ContentProvider {
                 queryBuilder.setTables(DataContract.Orders.SQL_JOIN_ORDERS_CLIENTS);
                 String having = selection == "client_id=?" ? null : "debt > 0";
                 cursor = queryBuilder.query(db,
-                        projection, selection, selectionArgs, "product, order_id", having, "orders.date DESC");
+                        projection, selection, selectionArgs, "orders._id", having, "orders.date DESC");
                 break;
             case ORDERS_ID:
                 queryBuilder.setTables(DataContract.Orders.SQL_JOIN_ORDERS_CLIENTS);
                 cursor = queryBuilder.query(db,
-                        projection, selection, selectionArgs, "product", null, "orders.date DESC");
+                        projection, selection, selectionArgs, "orders._id", null, "orders.date DESC");
                 break;
             case PAYMENTS: case PAYMENTS_ID:
                 queryBuilder.setTables(DataContract.Payments.PAYMENTS_TABLE_NAME);

@@ -41,7 +41,7 @@ public final class DataContract {
         public static final String SQL_JOIN_TABLES= "(select clients._id, clients.name, orders.product, orders.date, price*quantity - total(amount) product_debt from clients " +
                 "left join orders on clients._id == orders.client_id " +
                 "left join payments on orders._id == payments.order_id " +
-                "group by product " +
+                "group by orders._id " +
                 "order by clients.name, orders.date asc)";
 
         public static final Uri CONTENT_URI = Uri.withAppendedPath(AUTHORITY_URI, CLIENTS_TABLE_NAME);
