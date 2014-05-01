@@ -33,7 +33,7 @@
     <string name="validation_order_product_required">Product name is required</string>
     <string name="validation_order_price_required">Product price is required</string>
     <string name="validation_order_price_greater_zero">Enter a value greater than zero</string>
-    <string name="validation_add_payments">Order is paid, if you want to add payments you need to delete an old payment</string>
+    <string name="validation_add_payments">Order is already paid</string>
     <string name="validation_payment_amount_required">Amount of payment is required</string>
     <string name="validation_payment_amount_greater_zero">Enter a value greater than zero</string>
     <string name="validation_payment_exceed_price">Payments exceed total debt, enter a number less or equal than </string>
@@ -64,5 +64,8 @@
     <string name="order_total">Total:&#160;</string>
     <string name="call_client">Call</string>
     <string name="no_notes">There isn\'t notes.</string>
+    <string name="no_email">No email.</string>
+    <string name="no_address">No address.</string>
+    <string name="no_phone">No phone.</string>
 
 </resources>

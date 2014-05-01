@@ -33,7 +33,7 @@
     <string name="validation_order_product_required">Nombre del producto es requerido</string>
     <string name="validation_order_price_required">Precio del producto es requerido</string>
     <string name="validation_order_price_greater_zero">Ingrese un valor mayor a cero</string>
-    <string name="validation_add_payments">El pedido ya fue pagado, si quieres agregar más pagos tienes que borrar un pago anterior.</string>
+    <string name="validation_add_payments">El pedido ya fue pagado.</string>
     <string name="validation_payment_amount_required">Cantidad del pago es requerida</string>
     <string name="validation_payment_amount_greater_zero">Ingrese un valor mayor a cero</string>
     <string name="validation_payment_exceed_price">El total de pagos excede el monto total, ingrese un numero menor o igual a </string>
@@ -64,5 +64,8 @@
     <string name="order_total">Total:&#160;</string>
     <string name="call_client">LLamar</string>
     <string name="no_notes">No hay notas.</string>
+    <string name="no_email">No tiene email.</string>
+    <string name="no_address">No tiene dirección.</string>
+    <string name="no_phone">No tiene número.</string>
 
 </resources>

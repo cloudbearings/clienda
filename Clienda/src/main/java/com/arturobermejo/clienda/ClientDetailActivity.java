@@ -140,6 +140,10 @@ public class ClientDetailActivity extends ActionBarActivity implements LoaderMan
             String phone = data.getString(data.getColumnIndex(DataContract.Clients.CLIENTS_KEY_PHONE));
             String email = data.getString(data.getColumnIndex(DataContract.Clients.CLIENTS_KEY_EMAIL));
             String notes = data.getString(data.getColumnIndex(DataContract.Clients.CLIENTS_KEY_NOTES));
+
+            address = address.equals("") ? getString(R.string.no_address) : address;
+            phone = phone.equals("") ? getString(R.string.no_phone) : phone;
+            email = email.equals("") ? getString(R.string.no_email) : email;
             notes = notes.equals("") ? getString(R.string.no_notes) : notes;
 
             mName.setText(name);
