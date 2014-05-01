@@ -4,6 +4,7 @@ package com.arturobermejo.clienda;
  * Created by abermejo on 4/22/14.
  */
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -29,8 +30,11 @@ public class CustomAlertDialogBuilder extends AlertDialog.Builder {
 
     private Boolean mCancelOnTouchOutside = null;
 
+    private Context c;
+
     public CustomAlertDialogBuilder(Context context) {
         super(context);
+        c = context;
     }
 
     public CustomAlertDialogBuilder setOnDismissListener (DialogInterface.OnDismissListener listener) {
@@ -69,13 +73,14 @@ public class CustomAlertDialogBuilder extends AlertDialog.Builder {
     public CustomAlertDialogBuilder setNeutralButton(int textId, DialogInterface.OnClickListener listener) {
         setNeutralButton(getContext().getString(textId), listener);
         return this;
-    }
+    }*/
 
     @Override
     public CustomAlertDialogBuilder setPositiveButton(int textId, DialogInterface.OnClickListener listener) {
-        setPositiveButton(getContext().getString(textId), listener);
+        // Fix getContext compatibility
+        setPositiveButton(c.getString(textId), listener);
         return this;
-    }*/
+    }
 
     public CustomAlertDialogBuilder setCanceledOnTouchOutside (boolean cancelOnTouchOutside) {
         mCancelOnTouchOutside = cancelOnTouchOutside;
