@@ -48,7 +48,7 @@ public class OrderDetailActivity extends ActionBarActivity implements LoaderMana
     Long orderId;
     TextView mProduct, mClient, mPrice, mQuantity, mDate, mNotes, mTotalPayments, mDebt, mTotal, mPaymentsText;
     SimpleCursorAdapter mAdapter;
-    Float price, totalPayments;
+    Float price, totalPayments, debt;
     int quantity;
     SharedPreferences sharedPref;
     Boolean is_collapsed = false;
@@ -137,7 +137,7 @@ public class OrderDetailActivity extends ActionBarActivity implements LoaderMana
                 return true;
 
             case R.id.action_add_payment:
-                if (price - totalPayments == 0.0 ) {
+                if (debt == 0.0 ) {
                     String message = getString(R.string.validation_add_payments);
                     Toast toast = Toast.makeText(this, message, Toast.LENGTH_LONG);
                     toast.setGravity(Gravity.CENTER, 0, 0);
@@ -207,7 +207,7 @@ public class OrderDetailActivity extends ActionBarActivity implements LoaderMana
             totalPayments = data.getFloat(data.getColumnIndex("total_payments"));
             quantity = data.getInt(data.getColumnIndex(DataContract.Orders.ORDERS_KEY_QUANTITY));
             String total = currencySymbol + Float.toString(price * (float) quantity);
-            Float debt =data.getFloat(data.getColumnIndex("debt"));
+            debt = data.getFloat(data.getColumnIndex("debt"));
             String notes = data.getString(data.getColumnIndex(DataContract.Orders.ORDERS_KEY_NOTES));
             notes = notes.equals("") ? getString(R.string.no_notes) : notes;
 
