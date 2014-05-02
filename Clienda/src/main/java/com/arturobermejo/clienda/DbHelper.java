@@ -30,7 +30,7 @@ public class DbHelper extends SQLiteOpenHelper {
             db.execSQL(DataContract.Orders.SQL_CREATE_ORDERS_TABLE);
             db.execSQL(DataContract.Payments.SQL_CREATE_PAYMENTS_TABLE);
         } catch (Error e) {
-            Log.i(TAG, e.toString());
+
         }
     }
 
@@ -42,7 +42,7 @@ public class DbHelper extends SQLiteOpenHelper {
             db.execSQL(DataContract.Orders.SQL_DROP_ORDERS_TABLE);
             db.execSQL(DataContract.Payments.SQL_DROP_PAYMENTS_TABLE);
         } catch (Error e) {
-            Log.i(TAG, e.toString());
+
         }
 
         onCreate(db);
