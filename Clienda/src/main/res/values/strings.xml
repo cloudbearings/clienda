@@ -52,20 +52,23 @@
     <string name="change">Change</string>
     <string name="amount">Amount</string>
     <string name="payments_empty">No payments registered</string>
-    <string name="last_order">Last Order:&#160;</string>
+    <string name="last_order">Last Order: </string>
     <string name="date">Date</string>
     <string name="currency">Currency</string>
     <string name="configuration_currency_summary">Set the currency symbol (e.g. $)</string>
-    <string name="order_debt">Debt:&#160;</string>
-    <string name="order_price">Price:&#160;</string>
+    <string name="order_debt">Debt: </string>
+    <string name="order_price">Price: </string>
     <string name="quantity">Quantity</string>
     <string name="validation_order_quantity_required">Quantity is required</string>
-    <string name="order_quantity">Quantity:&#160;</string>
-    <string name="order_total">Total:&#160;</string>
+    <string name="order_quantity">Quantity: </string>
+    <string name="order_total">Total: </string>
     <string name="call_client">Call</string>
     <string name="no_notes">There isn\'t notes.</string>
     <string name="no_email">No email.</string>
     <string name="no_address">No address.</string>
     <string name="no_phone">No phone.</string>
+    <string name="title_activity_about">AboutActivity</string>
+    <string name="copyright">&#169; 2014 - All right reserved.</string>
+    <string name="about">About</string>
 
 </resources>

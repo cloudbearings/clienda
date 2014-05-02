@@ -67,5 +67,7 @@
     <string name="no_email">No tiene email.</string>
     <string name="no_address">No tiene dirección.</string>
     <string name="no_phone">No tiene número.</string>
+    <string name="copyright">&#169; 2014 - Todos los derechos reservados.</string>
+    <string name="about">Acerca de</string>
 
 </resources>
